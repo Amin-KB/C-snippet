@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title></Title>    
+            <Author>Amin Kaam Beigi</Author>
+            <Description>get the guid from database</Description>
+            <Shortcut>getguid</Shortcut> 
+        </Header>
+        <Snippet>
+            <Code Language="Csharp">
+                <![CDATA[
+                      internal static Guid? GetGuid(string email)
+        {
+            using (var db = new DatabaseContext())
+            {
+                if (db.People.Any(x => x.Email == email))
+                {
+                    return db.People.SingleOrDefault(x => x.Email == email).Guid;
+                }
+                return null;
+            }
+        }
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

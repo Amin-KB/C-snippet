@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title></Title>    
+            <Author>Amin Kaam Beigi</Author>
+            <Description>Create get status method</Description>
+            <Shortcut>getstatus</Shortcut> 
+        </Header>
+        <Snippet>
+            <Code Language="Csharp">
+                <![CDATA[
+        internal static byte GetStatus(int id)
+        {
+            using (var db = new DatabaseContext())
+            {
+                return db.TimeStamps
+                    .Include(t=> t.Status)
+                    .OrderBy(o => o.Time)
+                    .LastOrDefault(x => x.EmployeeId == id)?.Status.Number ?? 2;
+            }
+        }
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

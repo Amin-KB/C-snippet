@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title></Title>    
+            <Author>Amin Kaam Beigi</Author>
+            <Description>Create menu method;</Description>
+            <Shortcut>menu</Shortcut> 
+        </Header>
+        <Snippet>
+            <Code Language="Csharp">
+                <![CDATA[
+                     private static void Menu()
+        {
+            
+            byte index = 0;
+            bool loop = false;
+            do
+            {
+                Console.WriteLine();
+             
+                Console.WriteLine("0----Exit");
+               
+                Console.WriteLine("1----Create");
+             
+                loop = byte.TryParse(Console.ReadLine(), out index);
+                Console.Clear();
+                switch (index)
+                {
+                    case 0:
+                        Console.WriteLine("Bye");
+                        break;
+                    case 1:
+                        Create();
+                        break;
+                  
+                }
+
+            } while (!loop || index != 0);
+        }
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
